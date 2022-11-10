@@ -1,0 +1,37 @@
+2022-11-10T07:43:30	Static on port 8000
+2022-11-10T07:43:30	API on port 8001
+2022-11-10T07:44:29	entity { say: [AsyncFunction: say] }
+2022-11-10T07:44:29	::1 say /api/talks/say
+2022-11-10T07:49:37	Static on port 8000
+2022-11-10T07:49:37	API on port 8001
+2022-11-10T09:55:21	entity {; read: [AsyncFunction: read],; create: [AsyncFunction: create],; update: [AsyncFunction: update],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find]; }
+2022-11-10T10:00:50	API on port 8001
+2022-11-10T10:00:50	Static on port 8000
+2022-11-10T10:00:56	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:06:42	API on port 8001
+2022-11-10T10:06:42	Static on port 8000
+2022-11-10T10:06:59	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:07:59	API on port 8001
+2022-11-10T10:07:59	Static on port 8000
+2022-11-10T10:08:04	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:09:21	API on port 8001
+2022-11-10T10:09:21	Static on port 8000
+2022-11-10T10:09:25	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:11:28	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:12:04	API on port 8001
+2022-11-10T10:12:04	Static on port 8000
+2022-11-10T10:12:08	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:13:40	API on port 8001
+2022-11-10T10:13:40	Static on port 8000
+2022-11-10T10:13:43	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:14:36	API on port 8001
+2022-11-10T10:14:36	Static on port 8000
+2022-11-10T10:14:40	entity {; create: [AsyncFunction: create],; delete: [AsyncFunction: delete],; find: [AsyncFunction: find],; read: [AsyncFunction: read],; update: [AsyncFunction: update]; }
+2022-11-10T10:14:40	foo:args { login: 'foo', password: 'qwe123' }
+2022-11-10T10:14:40	::1 create /api/user/create
+2022-11-10T11:21:39	API on port 8001
+2022-11-10T11:21:39	Static on port 8000
+2022-11-10T11:26:42	entity {; signIn: [AsyncFunction: signIn],; signOut: [AsyncFunction: signOut],; restore: [AsyncFunction: restore]; }
+2022-11-10T11:26:52	entity {; signIn: [AsyncFunction: signIn],; signOut: [AsyncFunction: signOut],; restore: [AsyncFunction: restore]; }
+2022-11-10T11:26:52	foo:args { login: 'foo', password: 'qwe123' }
+2022-11-10T11:26:52	::1 signIn /api/auth/signIn

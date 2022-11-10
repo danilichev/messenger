@@ -1,0 +1,39 @@
+2022-10-11T17:46:45	Static on port 8000
+2022-10-11T17:46:45	API on port 8001
+2022-10-11T17:47:47	::1 say /api/talks/say
+2022-10-11T18:06:09	Static on port 8000
+2022-10-11T18:06:09	API on port 8001
+2022-10-11T18:06:21	::1 say /api/talks/say
+2022-10-11T18:12:30	Static on port 8000
+2022-10-11T18:12:30	API on port 8001
+2022-10-11T18:19:04	Static on port 8000
+2022-10-11T18:19:04	API on port 8001
+2022-10-11T18:54:39	Static on port 8000
+2022-10-11T18:57:20	Static on port 8000
+2022-10-11T18:57:58	Static on port 8000
+2022-10-11T18:59:19	Static on port 8000
+2022-10-11T19:04:35	Static on port 8000
+2022-10-11T19:04:35	API on port 8001
+2022-10-11T19:05:43	Static on port 8000
+2022-10-11T19:05:43	API on port 8001
+2022-10-11T19:07:03	Static on port 8000
+2022-10-11T19:07:03	API on port 8001
+2022-10-11T19:07:06	entity [Module: null prototype] { default: { say: [AsyncFunction: say] } }
+2022-10-11T19:07:39	Static on port 8000
+2022-10-11T19:07:39	API on port 8001
+2022-10-11T19:07:45	entity [Module: null prototype] { default: { say: [AsyncFunction: say] } }
+2022-10-11T19:12:03	entity [Module: null prototype] { default: { say: [AsyncFunction: say] } }
+2022-10-11T19:12:26	Static on port 8000
+2022-10-11T19:12:26	API on port 8001
+2022-10-11T19:12:32	entity { say: [AsyncFunction: say] }
+2022-10-11T19:12:32	::1 say /api/talks/say
+2022-10-11T19:12:36	entity { say: [AsyncFunction: say] }
+2022-10-11T19:12:36	::1 say /api/talks/say
+2022-10-11T19:18:29	Static on port 8000
+2022-10-11T19:18:29	API on port 8001
+2022-10-11T19:18:34	entity { say: [AsyncFunction: say] }
+2022-10-11T19:18:34	::1 say /api/talks/say
+2022-10-11T19:18:37	entity { say: [AsyncFunction: say] }
+2022-10-11T19:18:37	::1 say /api/talks/say
+2022-10-11T19:18:38	entity { say: [AsyncFunction: say] }
+2022-10-11T19:18:38	::1 say /api/talks/say
