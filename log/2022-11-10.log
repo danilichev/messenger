@@ -35,3 +35,5 @@
 2022-11-10T11:26:52	entity {; signIn: [AsyncFunction: signIn],; signOut: [AsyncFunction: signOut],; restore: [AsyncFunction: restore]; }
 2022-11-10T11:26:52	foo:args { login: 'foo', password: 'qwe123' }
 2022-11-10T11:26:52	::1 signIn /api/auth/signIn
+2022-11-10T13:59:12	API on port 8001
+2022-11-10T13:59:12	Static on port 8000
