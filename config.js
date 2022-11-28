@@ -4,11 +4,11 @@ export default {
     transport: "http",
   },
   db: {
-    database: "example",
-    host: "127.0.0.1",
-    password: "marcus",
-    port: 5432,
-    user: "marcus",
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
   },
   sandbox: {
     displayErrors: false,

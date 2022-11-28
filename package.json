@@ -1,13 +1,21 @@
 {
-  "name": "grasp-controller",
-  "version": "5.0.0",
-  "description": "GRASP: controller example",
+  "name": "messenger",
+  "version": "0.0.1",
+  "description": "Messenger",
   "license": "MIT",
   "private": true,
   "main": "main.js",
   "type": "module",
+  "prisma": {
+    "schema": "db/schema.prisma"
+  },
   "dependencies": {
+    "@prisma/client": "^4.6.1",
     "pg": "^8.8.0",
     "ws": "^8.8.1"
+  },
+  "devDependencies": {
+    "prettier-plugin-prisma": "^4.4.0",
+    "prisma": "^4.6.1"
   }
 }
