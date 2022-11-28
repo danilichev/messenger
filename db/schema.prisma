@@ -9,6 +9,7 @@ generator client {
 
 model Channel {
   channelUser ChannelUser[]
+  createdAt   DateTime      @default(now())
   id          BigInt        @id(map: "pkChannel") @default(autoincrement())
   message     Message[]
   name        String        @unique(map: "akChannelName") @db.VarChar
@@ -26,12 +27,13 @@ model ChannelUser {
 }
 
 model Message {
-  channel   Channel @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageChannel")
+  channel   Channel  @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageChannel")
   channelId BigInt
-  from      User    @relation(fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageFrom")
+  createdAt DateTime @default(now())
+  from      User     @relation(fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageFrom")
   fromId    BigInt
-  id        BigInt  @id(map: "pkMessage") @default(autoincrement())
-  text      String  @db.VarChar
+  id        BigInt   @id(map: "pkMessage") @default(autoincrement())
+  text      String   @db.VarChar
 }
 
 model Role {
@@ -52,11 +54,13 @@ model Session {
 model User {
   channel     Channel[]
   channelUser ChannelUser[]
+  createdAt   DateTime      @default(now())
   id          BigInt        @id(map: "pkUser") @default(autoincrement())
   login       String        @unique(map: "akUserLogin") @db.VarChar(64)
   message     Message[]
   password    String        @db.VarChar
   session     Session[]
+  updatedAt   DateTime      @updatedAt
   userRole    UserRole[]
 }
 
