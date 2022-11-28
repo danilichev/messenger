@@ -55,8 +55,8 @@ model User {
   channel     Channel[]
   channelUser ChannelUser[]
   createdAt   DateTime      @default(now())
+  email       String        @unique(map: "akUserEmail") @db.VarChar(64)
   id          BigInt        @id(map: "pkUser") @default(autoincrement())
-  login       String        @unique(map: "akUserLogin") @db.VarChar(64)
   message     Message[]
   password    String        @db.VarChar
   session     Session[]
