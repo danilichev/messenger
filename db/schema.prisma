@@ -7,31 +7,31 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Area {
-  areaUser AreaUser[]
-  id       BigInt     @id(map: "pkArea") @default(autoincrement())
-  message  Message[]
-  name     String     @unique(map: "akAreaName") @db.VarChar
-  ownerId  BigInt
-  user     User       @relation(fields: [ownerId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkAreaOwner")
+model Channel {
+  channelUser ChannelUser[]
+  id          BigInt        @id(map: "pkChannel") @default(autoincrement())
+  message     Message[]
+  name        String        @unique(map: "akChannelName") @db.VarChar
+  owner       User          @relation(fields: [ownerId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkChannelOwner")
+  ownerId     BigInt
 }
 
-model AreaUser {
-  area   Area   @relation(fields: [areaId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkAreaUserArea")
-  areaId BigInt
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkAreaUserUser")
-  userId BigInt
+model ChannelUser {
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkChannelUserChannel")
+  channelId BigInt
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkChannelUserUser")
+  userId    BigInt
 
-  @@id([areaId, userId], map: "pkAreaUser")
+  @@id([channelId, userId], map: "pkChannelUser")
 }
 
 model Message {
-  area   Area   @relation(fields: [areaId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageArea")
-  areaId BigInt
-  from   User   @relation(fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageFrom")
-  fromId BigInt
-  id     BigInt @id(map: "pkMessage") @default(autoincrement())
-  text   String @db.VarChar
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageChannel")
+  channelId BigInt
+  from      User    @relation(fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageFrom")
+  fromId    BigInt
+  id        BigInt  @id(map: "pkMessage") @default(autoincrement())
+  text      String  @db.VarChar
 }
 
 model Role {
@@ -41,23 +41,23 @@ model Role {
 }
 
 model Session {
-  sessionId BigInt @id(map: "pkSession") @default(autoincrement())
-  userId    BigInt
-  token     String @unique(map: "akSessionToken") @db.VarChar
-  ip        String @db.Inet
-  data      Json
-  user      User   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkSessionAccount")
+  data   Json
+  id     BigInt @id(map: "pkSession") @default(autoincrement())
+  ip     String @db.Inet
+  token  String @unique(map: "akSessionToken") @db.VarChar
+  user   User   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkSessionUser")
+  userId BigInt
 }
 
 model User {
-  area     Area[]
-  areaUser AreaUser[]
-  id       BigInt     @id(map: "pkUser") @default(autoincrement())
-  login    String     @unique(map: "akUserLogin") @db.VarChar(64)
-  message  Message[]
-  password String     @db.VarChar
-  session  Session[]
-  userRole UserRole[]
+  channel     Channel[]
+  channelUser ChannelUser[]
+  id          BigInt        @id(map: "pkUser") @default(autoincrement())
+  login       String        @unique(map: "akUserLogin") @db.VarChar(64)
+  message     Message[]
+  password    String        @db.VarChar
+  session     Session[]
+  userRole    UserRole[]
 }
 
 model UserRole {
