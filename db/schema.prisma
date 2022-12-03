@@ -8,67 +8,58 @@ generator client {
 }
 
 model Channel {
-  channelUser ChannelUser[]
-  createdAt   DateTime      @default(now())
-  id          BigInt        @id(map: "pkChannel") @default(autoincrement())
-  message     Message[]
-  name        String        @unique(map: "akChannelName") @db.VarChar
-  owner       User          @relation(fields: [ownerId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkChannelOwner")
-  ownerId     BigInt
+  createdAt DateTime      @default(now())
+  id        String        @id @default(uuid()) @db.Uuid
+  messages  Message[]
+  name      String?
+  owner     User          @relation(fields: [ownerId], references: [id])
+  ownerId   String        @db.Uuid
+  users     ChannelUser[]
 }
 
 model ChannelUser {
-  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkChannelUserChannel")
-  channelId BigInt
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkChannelUserUser")
-  userId    BigInt
+  channel   Channel @relation(fields: [channelId], references: [id])
+  channelId String  @db.Uuid
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String  @db.Uuid
 
-  @@id([channelId, userId], map: "pkChannelUser")
+  @@id([channelId, userId])
 }
 
 model Message {
-  channel   Channel  @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageChannel")
-  channelId BigInt
+  channel   Channel  @relation(fields: [channelId], references: [id])
+  channelId String   @db.Uuid
   createdAt DateTime @default(now())
-  from      User     @relation(fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkMessageFrom")
-  fromId    BigInt
-  id        BigInt   @id(map: "pkMessage") @default(autoincrement())
-  text      String   @db.VarChar
-}
-
-model Role {
-  id       BigInt     @id(map: "pkRole") @default(autoincrement())
-  name     String     @unique(map: "akRoleName") @db.VarChar
-  userRole UserRole[]
+  from      User     @relation(fields: [fromId], references: [id])
+  fromId    String   @db.Uuid
+  id        String   @id @default(uuid()) @db.Uuid
+  text      String
 }
 
 model Session {
   data   Json
-  id     BigInt @id(map: "pkSession") @default(autoincrement())
+  id     String @id @default(uuid()) @db.Uuid
   ip     String @db.Inet
-  token  String @unique(map: "akSessionToken") @db.VarChar
-  user   User   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fkSessionUser")
-  userId BigInt
+  token  String @unique @db.VarChar
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @db.Uuid
 }
 
 model User {
-  channel     Channel[]
-  channelUser ChannelUser[]
+  channels    ChannelUser[]
   createdAt   DateTime      @default(now())
-  email       String        @unique(map: "akUserEmail") @db.VarChar(64)
-  id          BigInt        @id(map: "pkUser") @default(autoincrement())
-  message     Message[]
+  email       String        @unique @db.VarChar(64)
+  id          String        @id @default(uuid()) @db.Uuid
+  messages    Message[]
+  name        String
+  ownChannels Channel[]
   password    String        @db.VarChar
-  session     Session[]
+  role        Role          @default(USER)
+  sessions    Session[]
   updatedAt   DateTime      @updatedAt
-  userRole    UserRole[]
 }
 
-model UserRole {
-  role   Role   @relation(fields: [roleId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkUserRoleRole")
-  roleId BigInt
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fkUserRoleUser")
-  userId BigInt
-
-  @@id([userId, roleId], map: "pkUserRole")
+enum Role {
+  ADMIN
+  USER
 }
