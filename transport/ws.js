@@ -1,11 +1,11 @@
-import WS from 'ws';
+import WS from "ws";
 
 export default (routing, port, console) => {
   const ws = new WS.Server({ port });
 
-  ws.on('connection', (connection, req) => {
+  ws.on("connection", (connection, req) => {
     const ip = req.socket.remoteAddress;
-    connection.on('message', async (message) => {
+    connection.on("message", async (message) => {
       const obj = JSON.parse(message);
       const { name, method, args = [] } = obj;
       const entity = routing[name];
