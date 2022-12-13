@@ -10,5 +10,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {}
+  "plugins": ["simple-import-sort", "import"],
+  "rules": {
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error"
+  }
 }
